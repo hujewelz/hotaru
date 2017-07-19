@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'Hotaru_Example' do
+  pod 'Hotaru', :path => '../'
+
+  target 'Hotaru_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
