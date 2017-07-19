@@ -9,7 +9,29 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+## Usage
+
+It is easy to use Hotaru:
+
+```
+Provider<UserApi>(.users).JSONData { (response) in
+    let res = response.map{ User($0["data"] as! [String : Any]) }
+    guard let user = res.value else {
+        return
+    }
+            
+    print(user)
+}
+
+```
+
 ## Requirements
+
+
+Swift Version | iOS Version
+---------- | --------
+ 3.x | >= 8.0
+
 
 ## Installation
 
@@ -27,3 +49,5 @@ huluobobo, hujewelz@163.com
 ## License
 
 Hotaru is available under the MIT license. See the LICENSE file for more info.
+
+
