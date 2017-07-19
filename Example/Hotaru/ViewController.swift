@@ -7,18 +7,46 @@
 //
 
 import UIKit
+import Hotaru
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        test()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func test() {
+        
+        Provider<UserApi>(.users).JSONData { (response) in
+            let res = response.map{ User($0["data"] as! [String : Any]) }
+            guard let user = res.value else {
+                return
+            }
+            
+            print(user)
+        }
+        
     }
-
+    
 }
+
+enum UserApi: TargetType {
+    case users
+    
+    var path: String { return "/users" }
+}
+
+struct User {
+    var name: String = ""
+    
+    init(_ json: [String: Any]) {
+        guard let name = json["name"] as? String else {
+            return
+        }
+        self.name = name
+    }
+}
+
 

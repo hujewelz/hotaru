@@ -1,0 +1,19 @@
+PODS:
+  - Alamofire (4.5.0)
+  - Hotaru (0.1.0):
+    - Alamofire (~> 4.5.0)
+
+DEPENDENCIES:
+  - Hotaru (from `../`)
+
+EXTERNAL SOURCES:
+  Hotaru:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  Hotaru: 7781e2dd14ed0a654c795913709769de4f036fdc
+
+PODFILE CHECKSUM: 5aec000e6e625c08722bc4985726f2236710a24f
+
+COCOAPODS: 1.2.1

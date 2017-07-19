@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Hotaru
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        HotaruServer.setBaseURL(URL(string: "http://192.168.6.114:3000")!, for: .development)
+        HotaruServer.setCurrentEnvironment(.development)
+        HotaruServer.enableLog(true)
+        
         return true
     }
 

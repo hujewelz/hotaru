@@ -1,0 +1,6 @@
+framework module Hotaru {
+  umbrella header "Hotaru-umbrella.h"
+
+  export *
+  module * { export * }
+}
