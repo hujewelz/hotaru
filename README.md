@@ -1,6 +1,6 @@
 # Hotaru
 
-[![CI Status](http://img.shields.io/travis/hujewelz/Hotaru.svg?style=flat)](https://travis-ci.org/hujewelz/Hotaru)
+[![CI Status](https://img.shields.io/travis/rust-lang/rust.svg)](https://travis-ci.org/hujewelz/Hotaru)
 [![Version](https://img.shields.io/cocoapods/v/Hotaru.svg?style=flat)](http://cocoapods.org/pods/Hotaru)
 [![License](https://img.shields.io/cocoapods/l/Hotaru.svg?style=flat)](http://cocoapods.org/pods/Hotaru)
 [![Platform](https://img.shields.io/cocoapods/p/Hotaru.svg?style=flat)](http://cocoapods.org/pods/Hotaru)
