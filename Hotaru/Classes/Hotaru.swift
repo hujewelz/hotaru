@@ -60,6 +60,16 @@ open class Provider<T: TargetType> {
         request!.responseData(completionHandler: { (response) in
             let statusCode = response.response?.statusCode ?? -1
             
+            if let validateStatasCodeRange = self.validateStatasCodeRange, validateStatasCodeRange ~= statusCode {
+                return
+            }
+            
+            HotaruServer.shared.beforeResponseClosure?(statusCode)
+            
+            if HotaruServer.shared.enableLog {
+                Logger.logDebug(with: response, data: response.value)
+            }
+            
             guard let value = response.result.value else {
                 
                 let res = Response<Data>(result: Result.failure(response.error!), status: statusCode)
@@ -91,7 +101,6 @@ open class Provider<T: TargetType> {
             }
             
             HotaruServer.shared.beforeResponseClosure?(statusCode)
-            
             
             if HotaruServer.shared.enableLog {
                 Logger.logDebug(with: response, data: response.value)

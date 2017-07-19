@@ -35,7 +35,7 @@ struct Logger {
         #endif
     }
     
-    static func logDebug(with response: Alamofire.DataResponse<Any>, data: Any?) {
+    static func logDebug<T>(with response: Alamofire.DataResponse<T>, data: Any?) {
         #if DEBUG
             guard let httpResponse  = response.response else {
                 var log = "\n\n************************* Response Start **********************************\n\n"
