@@ -44,7 +44,6 @@ public final class HotaruServer {
     }
     
     public class func setBaseURL(_ baseURL: URL, for env: HotaruServer.Environment) {
-        
         let key = String(describing: "\(HotaruServer.self).\(env.rawValue)")
         HotaruServer.shared.urlMap[key] = baseURL
     }

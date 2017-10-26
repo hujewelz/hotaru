@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 
+public typealias JSON = [String: Any]
 
 open class Provider<T: TargetType> {
     
@@ -19,6 +20,8 @@ open class Provider<T: TargetType> {
     private var params: Hotaru.Parameters?
     
     private var validateStatasCodeRange: Range<Int>?
+    
+    private var validateStatasHandler: (() -> Void)?
     
     
     public init() {}
@@ -33,6 +36,10 @@ open class Provider<T: TargetType> {
         params = param
         request = Alamofire.request(url, method: method, parameters: param, encoding: encoding, headers: headers)
     }
+    
+    /// Create a request.
+    /// - parameter target: The target of request.
+    /// - returns: return the provider
     
     public func request(_ target: T) -> Self {
         if request != nil {
@@ -50,6 +57,9 @@ open class Provider<T: TargetType> {
         return self
     }
     
+    /// Send request with a response hanlder
+    /// - parameter handler: a response callback handler, you can get a `Response<Data>` object
+    
     @discardableResult
     public func responseData(_ handler: @escaping (Response<Data>) -> Void) -> Self {
         
@@ -61,6 +71,8 @@ open class Provider<T: TargetType> {
             let statusCode = response.response?.statusCode ?? -1
             
             if let validateStatasCodeRange = self.validateStatasCodeRange, validateStatasCodeRange ~= statusCode {
+                self.validateStatasHandler?()
+                self.clearnRequest()
                 return
             }
             
@@ -71,22 +83,25 @@ open class Provider<T: TargetType> {
             }
             
             guard let value = response.result.value else {
-                
-                let res = Response<Data>(result: Result.failure(response.error!), status: statusCode)
+                let res = Response<Data>(response: response.response, result: Result.failure(response.error!), status: statusCode)
                 handler(res)
-                
+                self.clearnRequest()
                 return
             }
             
-            let res = Response<Data>(result: Result.success(value), status: statusCode)
+            let res = Response<Data>(response: response.response, result: Result.success(value), status: statusCode)
             handler(res)
+            self.clearnRequest()
             
         })
         return self
     }
     
+    /// Send request with a response hanlder
+    /// - parameter handler: a response callback handler, you can get a `Response<[String: Any]>` object
+    
     @discardableResult
-    public func JSONData(_ handler: @escaping (Response<[String: Any]>) -> Void) -> Self {
+    public func JSONData(_ handler: @escaping (Response<Hotaru.JSON>) -> Void) -> Self {
         
         if HotaruServer.shared.enableLog {
             Logger.logDebug(with: request!, params: params)
@@ -95,8 +110,9 @@ open class Provider<T: TargetType> {
         request!.responseJSON(completionHandler: { (response) in
             let statusCode = response.response?.statusCode ?? -1
             
-            
             if let validateStatasCodeRange = self.validateStatasCodeRange, validateStatasCodeRange ~= statusCode {
+                self.validateStatasHandler?()
+                self.clearnRequest()
                 return
             }
             
@@ -106,18 +122,16 @@ open class Provider<T: TargetType> {
                 Logger.logDebug(with: response, data: response.value)
             }
             
-            guard let value = response.result.value, let json = value as? [String: Any] else {
-                
-                let res = Response<[String: Any]>(result: Result.failure(response.error!), status: statusCode)
-                
+            guard let value = response.result.value, let json = value as? Hotaru.JSON else {
+                let res = Response<Hotaru.JSON>(response: response.response, result: Result.failure(response.error!), status: statusCode)
                 handler(res)
-                
+                self.clearnRequest()
                 return
             }
             
-            let res = Response<[String: Any]>(result: Result.success(json), status: statusCode)
-            
+            let res = Response(response: response.response, result: Result.success(json), status: statusCode)
             handler(res)
+            self.clearnRequest()
     
         })
         
@@ -125,72 +139,23 @@ open class Provider<T: TargetType> {
     }
     
     @discardableResult
-    public func validate(statasCode: Range<Int>) -> Self {
+    public func validate(statasCode: Range<Int>, handler: (() -> Void)? = nil) -> Self {
         validateStatasCodeRange = statasCode
+        validateStatasHandler = handler
         return self
     }
+    
+    /// Cancel the request
     
     public func cancel() {
         request?.cancel()
     }
-}
-
-public struct Response<Value> {
     
-    public typealias Status = Int
+    // MARK: - Private
     
-    public let result: Result<Value>
-    
-    public let status: Status
-    
-    public var value: Value? {
-        return result.value
-    }
-    
-    public var error: Error? {
-        return result.error
-    }
-    
-    
-    init(result: Result<Value>, status: Status) {
-        self.result = result
-        self.status = status
-    }
-    
-}
-
-extension Response {
-    
-    public func map<T>(_ transform: (Value) -> T) -> Hotaru.Response<T> {
-        
-        guard let value = value else {
-            return Response<T>(result: .failure(error!), status: status)
-        }
-        
-        return Response<T>(result: .success(transform(value)), status: status)
-        
+    private func clearnRequest() {
+        request = nil
     }
 }
 
-public enum Result<Value> {
-    case success(Value)
-    case failure(Error)
-    
-    public var value: Value? {
-        switch self {
-        case .success(let value):
-            return value
-        case .failure:
-            return nil
-        }
-    }
-    
-    public var error: Error? {
-        switch self {
-        case .success:
-            return nil
-        case .failure(let error):
-            return error
-        }
-    }
-}
+

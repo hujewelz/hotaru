@@ -17,6 +17,7 @@
 		3626B94094672CB1C9DEA32B9F9502E1 /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01C037B4034EDA3D7955BC5E4E9D9D6 /* TaskDelegate.swift */; };
 		3E6332E97C223912224BA204B47389A0 /* Hotaru.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEB83E6A0798EBFEDD0A22B8FF5BBA8 /* Hotaru.swift */; };
 		41D44F4647031975F78EDA992A040AF4 /* Pods-Hotaru_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F311518F84C9D5B09CA4B0F291E055D /* Pods-Hotaru_Example-dummy.m */; };
+		512728F91FA1AB4700FC664C /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512728F71FA1AB3A00FC664C /* Response.swift */; };
 		5387216E723A3C68E851CA15573CDD71 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E230A0448B394DE26E688DAC8E6201E /* Request.swift */; };
 		61200D01A1855D7920CEF835C8BE00B0 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCBF1EED873F61C6D46CE37FA5C39D3 /* DispatchQueue+Alamofire.swift */; };
 		62F65AD8DC4F0F9610F4B8B4738EC094 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B030D27CAC730C5EB0F22390645310 /* ServerTrustPolicy.swift */; };
@@ -72,7 +73,7 @@
 		02F8FDE31F99D01A381985CA0F739F1A /* Pods-Hotaru_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Hotaru_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		04F47F5C9CDB035C5AFADEBA5BF44F1C /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
 		05815154ADC6AA1E8989A403ECB9962B /* Hotaru-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Hotaru-umbrella.h"; sourceTree = "<group>"; };
-		078B14B60E909922333788F5A73E3972 /* Pods-Hotaru_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Hotaru_Example.modulemap"; sourceTree = "<group>"; };
+		078B14B60E909922333788F5A73E3972 /* Pods-Hotaru_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Hotaru_Example.modulemap"; sourceTree = "<group>"; };
 		0D0533E4EC2277AAAC8888328EC5A64B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		0FCBF1EED873F61C6D46CE37FA5C39D3 /* DispatchQueue+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+Alamofire.swift"; path = "Source/DispatchQueue+Alamofire.swift"; sourceTree = "<group>"; };
 		13A0A663B36A229C69D5274A83E93F88 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -83,15 +84,16 @@
 		22C1C119BCE81C53F76CAC2BE27C38E0 /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
 		2659323708B951237AFF4437D00D2B97 /* Hotaru-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Hotaru-prefix.pch"; sourceTree = "<group>"; };
 		32B030D27CAC730C5EB0F22390645310 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
-		33D6E7E6766FE4D16252B2D20314E8D2 /* Pods-Hotaru_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Hotaru_Tests.modulemap"; sourceTree = "<group>"; };
+		33D6E7E6766FE4D16252B2D20314E8D2 /* Pods-Hotaru_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Hotaru_Tests.modulemap"; sourceTree = "<group>"; };
 		3D60BC9955B4F7FFA62D7440CB385C11 /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
 		402038CA6FFD0BB99A9E2AD829F932F2 /* Pods-Hotaru_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Hotaru_Example.release.xcconfig"; sourceTree = "<group>"; };
 		43C6242B07D9967077698874BF83435D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46CDAC6C1187C5467E576980E1062C8B /* SessionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionManager.swift; path = Source/SessionManager.swift; sourceTree = "<group>"; };
 		4AF006B0AD5765D1BFA8253C2DCBB126 /* AFError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AFError.swift; path = Source/AFError.swift; sourceTree = "<group>"; };
 		4F311518F84C9D5B09CA4B0F291E055D /* Pods-Hotaru_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Hotaru_Example-dummy.m"; sourceTree = "<group>"; };
-		5071FD3B9F595D59266D6131BBC06DFD /* Pods_Hotaru_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Hotaru_Tests.framework; path = "Pods-Hotaru_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5071FD3B9F595D59266D6131BBC06DFD /* Pods_Hotaru_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hotaru_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50B3FB1D4CC85B2AB2C304DB1FAAE79D /* HotaruTargetType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HotaruTargetType.swift; sourceTree = "<group>"; };
+		512728F71FA1AB3A00FC664C /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		59DB502674DA54CA26EA37BF15F61E53 /* Logger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		5ED82B89EC44E02D409731741173EC0B /* Pods-Hotaru_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Hotaru_Tests-umbrella.h"; sourceTree = "<group>"; };
 		6639346628280A0D0FAD35196BF56108 /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
@@ -101,27 +103,27 @@
 		706C7AFFE37BA158C3553250F4B5FAED /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		74EE732FB51F0FFC5AE6BF5BC8A234D9 /* Pods-Hotaru_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Hotaru_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		75A9D28D8D78A31B907FF0C80231F388 /* Pods-Hotaru_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Hotaru_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		7D141D1953E5C6E67E362CE73090E48A /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Alamofire.modulemap; sourceTree = "<group>"; };
+		7D141D1953E5C6E67E362CE73090E48A /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Alamofire.modulemap; sourceTree = "<group>"; };
 		8243D6630E7042C987D842768694EBED /* Pods-Hotaru_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Hotaru_Example-frameworks.sh"; sourceTree = "<group>"; };
 		87882A1F5A92C8138D54545E51D51E6F /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
 		918782D5E5F1B0BBCBF304BC544B30B8 /* Hotaru-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Hotaru-dummy.m"; sourceTree = "<group>"; };
-		9207E7AAFA056952A78FC0D75F1B1F1F /* Pods_Hotaru_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Hotaru_Example.framework; path = "Pods-Hotaru_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9207E7AAFA056952A78FC0D75F1B1F1F /* Pods_Hotaru_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hotaru_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A01C037B4034EDA3D7955BC5E4E9D9D6 /* TaskDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskDelegate.swift; path = Source/TaskDelegate.swift; sourceTree = "<group>"; };
 		AD02721FCAC256E892A043EF98BF2BCF /* Pods-Hotaru_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Hotaru_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		B029DBC43E49A740F12B5E4D2E6DD452 /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
 		B44A27EFBB0DA84D738057B77F3413B1 /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-umbrella.h"; sourceTree = "<group>"; };
-		B7F4FA7DA719627B6B039DE9D41AFE84 /* Hotaru.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Hotaru.modulemap; sourceTree = "<group>"; };
+		B7F4FA7DA719627B6B039DE9D41AFE84 /* Hotaru.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Hotaru.modulemap; sourceTree = "<group>"; };
 		BCCA9CA7D9C1A2047BB93336C5708DFD /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
 		BE437E65D43D095F14951017262EC38B /* Hotaru.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Hotaru.xcconfig; sourceTree = "<group>"; };
 		CC3590D4BD1256E29E61E56991308D25 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D2AB5E6234AF7E2968E6841B18C87E93 /* Hotaru.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Hotaru.framework; path = Hotaru.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2AB5E6234AF7E2968E6841B18C87E93 /* Hotaru.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hotaru.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D97BFBAC5C6518266323E93345E6BC25 /* Pods-Hotaru_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Hotaru_Example-umbrella.h"; sourceTree = "<group>"; };
 		DFCB8C44DE758E906C0BCDA455937B85 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
 		E2F9510473F6FFD7AA66524DB16C2263 /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
 		E3E9991D126EC02EF5168FE1CAE4A5D9 /* Pods-Hotaru_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Hotaru_Tests-resources.sh"; sourceTree = "<group>"; };
 		E5A8AA5F9EDED0A0BDDE7E830BF4AEE0 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
-		E6CD7197EA1C44039F220ABCDD85AAB1 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6CD7197EA1C44039F220ABCDD85AAB1 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6F34CCF86067ED508C12C676E298C69 /* Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
 		ECE55C301CF924AE492F8A84739A39E2 /* Pods-Hotaru_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Hotaru_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		EDEB83E6A0798EBFEDD0A22B8FF5BBA8 /* Hotaru.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Hotaru.swift; sourceTree = "<group>"; };
@@ -208,7 +210,6 @@
 				B029DBC43E49A740F12B5E4D2E6DD452 /* Validation.swift */,
 				55F14F994FE7AB51F028BFE66CEF3106 /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -269,11 +270,11 @@
 			isa = PBXGroup;
 			children = (
 				EDEB83E6A0798EBFEDD0A22B8FF5BBA8 /* Hotaru.swift */,
+				512728F71FA1AB3A00FC664C /* Response.swift */,
 				EF31EBFFE34ECBE3FFFF7A0F91098D4D /* HotaruServer.swift */,
 				50B3FB1D4CC85B2AB2C304DB1FAAE79D /* HotaruTargetType.swift */,
 				59DB502674DA54CA26EA37BF15F61E53 /* Logger.swift */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -312,7 +313,6 @@
 			children = (
 				6F67D089244C9B1D83D634AE59EA6FEE /* Classes */,
 			);
-			name = Hotaru;
 			path = Hotaru;
 			sourceTree = "<group>";
 		};
@@ -525,6 +525,7 @@
 				3E6332E97C223912224BA204B47389A0 /* Hotaru.swift in Sources */,
 				0DAE3DC54F4010EAFCF555969A391A39 /* HotaruServer.swift in Sources */,
 				95897805AAAE35DE693DFA96C1297E02 /* HotaruTargetType.swift in Sources */,
+				512728F91FA1AB4700FC664C /* Response.swift in Sources */,
 				9BE99611CC40FA213BE3D34A79F5D5DA /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

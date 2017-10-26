@@ -13,29 +13,51 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         test()
     }
     
     func test() {
-        
-        Provider<UserApi>(.users).JSONData { (response) in
-            let res = response.map{ User($0["data"] as! [String : Any]) }
+        Provider<UserApi>(.detail("123456")).JSONData { (response) in
+            let res = response.map{ User($0["data"] as! JSON) }
             guard let user = res.value else {
                 return
             }
-            
             print(user)
         }
+    }
+    
+    func testValidate() {
+        let userProvider = Provider().request(UserApi.users).validate(statasCode: 404..<405, handler: {
+            // Page Not found
+            
+        }).JSONData { (response) in
+            switch response.result {
+            case .success(let value):
+                print(value)
+            case .failure(let error):
+                print(error)
+            }
+        }
         
+        
+        // cancel the request
+        userProvider.cancel()
     }
     
 }
 
 enum UserApi: TargetType {
     case users
+    case detail(String)
     
-    var path: String { return "/users" }
+    var path: String {
+        switch self {
+        case .users:
+            return "/users"
+        case .detail(let id):
+            return "/detail/\(id)"
+        }
+    }
 }
 
 struct User {
