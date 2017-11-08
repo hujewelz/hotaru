@@ -27,7 +27,7 @@ open class Provider<T: TargetType> {
     public init() {}
     
     public init(_ target: T) {
-        let url = target.baseURL.appendingPathComponent(target.path)
+         let url = URL(string: target.baseURL.absoluteString + target.path) ?? target.baseURL
         let method = target.method
         let param = target.paramaters
         let encoding = target.encoding.value
@@ -45,7 +45,7 @@ open class Provider<T: TargetType> {
         if request != nil {
             return self
         }
-        let url = target.baseURL.appendingPathComponent(target.path)
+        let url = URL(string: target.baseURL.absoluteString + target.path) ?? target.baseURL
         let method = target.method
         let param = target.paramaters
         let encoding = target.encoding.value
