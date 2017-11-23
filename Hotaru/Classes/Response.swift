@@ -42,6 +42,7 @@ extension Response {
         
         return Response<T>(response: response, result: .success(transform(value)), status: status)
     }
+    
 }
 
 public enum Result<Value> {
@@ -66,4 +67,8 @@ public enum Result<Value> {
         }
     }
     
+}
+
+public protocol KeyPathible {
+    var key: String { get }
 }
