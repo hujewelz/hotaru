@@ -4,6 +4,8 @@ import Hotaru
 
 class Tests: XCTestCase {
     
+    var dict: [String: Any] = ["name": "jewelz", "age": 23]
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -17,6 +19,11 @@ class Tests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         XCTAssert(true, "Pass")
+    }
+    
+    func testJSON() {
+        let json = _JSON(dict)
+        XCTAssert(json.dictionary.values.count > 0, "pass")
     }
     
     func testPerformanceExample() {

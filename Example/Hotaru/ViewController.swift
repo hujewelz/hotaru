@@ -14,15 +14,28 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         test()
+        testJSON()
+    }
+    
+    func testJSON() {
+        let dict: [String: Any] = ["name": "jewelz", "age": 23]
+        let json = _JSON(dict)
+        print("json: ", json.dictionary)
     }
     
     func test() {
-        Provider<UserApi>(.detail("123456")).JSONData { (response) in
-            let res = response.map{ User($0["data"] as! JSON) }
-            guard let user = res.value else {
-                return
-            }
-            print(user)
+//        Provider<UserApi>(.detail("123456")).JSONData { (response) in
+//            let res = response.map{ User($0["data"] as! JSON) }
+//            guard let user = res.value else {
+//                return
+//            }
+//            print(user)
+//        }
+        
+        Provider<UserApi>(.detail("123456")).flatMap { response -> Provider<UserApi> in
+            return Provider(UserApi.users)
+        }.JSONData { response in
+            print(response)
         }
     }
     
