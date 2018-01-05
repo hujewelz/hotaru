@@ -22,7 +22,7 @@ class Tests: XCTestCase {
     }
     
     func testJSON() {
-        let json = _JSON(dict)
+        var json = JSON(dict)
         XCTAssert(json.dictionary.values.count > 0, "pass")
     }
     

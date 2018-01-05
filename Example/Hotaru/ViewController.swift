@@ -11,57 +11,73 @@ import Hotaru
 
 class ViewController: UIViewController {
 
+    let provider = Provider<UserApi>(.users)
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-        test()
-        testJSON()
-    }
-    
-    func testJSON() {
-        let dict: [String: Any] = ["name": "jewelz", "age": 23]
-        let json = _JSON(dict)
-        print("json: ", json.dictionary)
+        title = "Hotaru"
+        //test()
+        testMerge()
+//        testFlatMap()
     }
     
     func test() {
-//        Provider<UserApi>(.detail("123456")).JSONData { (response) in
-//            let res = response.map{ User($0["data"] as! JSON) }
-//            guard let user = res.value else {
-//                return
-//            }
-//            print(user)
-//        }
+        Provider<UserApi>(.users).request { (response) in
+            //print("response: ", response)
+            print("title: ", self.title ?? "")
+        }.addToCancelBag()
         
-        Provider<UserApi>(.detail("123456")).flatMap { response -> Provider<UserApi> in
-            return Provider(UserApi.users)
-        }.JSONData { response in
-            print(response)
-        }
     }
     
-    func testValidate() {
-        let userProvider = Provider().request(UserApi.users).validate(statasCode: 404..<405, handler: {
-            // Page Not found
+    func testMerge() {
+        provider.merge(.users, .detail("1232")) { response in
             
-        }).JSONData { (response) in
-            switch response.result {
-            case .success(let value):
-                print(value)
-            case .failure(let error):
-                print(error)
-            }
-        }
-        
-        
-        // cancel the request
-        userProvider.cancel()
+        }.addToCancelBag()
     }
+    
+    deinit {
+        print("----- vc destoried")
+    }
+    
+    func testFlatMap() {
+        Provider<UserApi>(.users)
+            .flatMap { response -> Provider<UserApi> in
+                guard let res = response.array.first as? [String: Any] else { return Provider(UserApi.users) }
+                let user = User(res)
+                return Provider(.detail(user.name))
+            }
+            .request { response in
+                print(response)
+        }.addToCancelBag()
+    }
+//
+//    func testValidate() {
+//        let userProvider = Provider()
+//            .request(UserApi.users)
+//            .validate(statasCode: 404..<405, handler: {
+//            // Page Not found
+//            
+//        }).JSONData { (response) in
+//            switch response.result {
+//            case .success(let value):
+//                print(value)
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+//        
+//        
+//        // cancel the request
+//        userProvider.cancel()
+//    }
     
 }
 
 enum UserApi: TargetType {
     case users
     case detail(String)
+    
+    var baseURL: URL { return URL(string: "http://192.168.6.114:3000")! }
     
     var path: String {
         switch self {

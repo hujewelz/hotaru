@@ -7,14 +7,20 @@
 
 import Foundation
 
-public struct _JSON {
+public struct JSON {
     
     public var array: [Any] {
-        return rawArray
+        mutating get {
+            object = _object
+            return rawArray
+        }
     }
     
     public var dictionary: [String: Any] {
-        return rawDictionary
+        mutating get {
+            object = _object
+            return rawDictionary
+        }
     }
     
     public init(_ obj: Any) {
@@ -44,10 +50,10 @@ public struct _JSON {
     }
     
     fileprivate init(jsonObj: Any) {
-        object = jsonObj
+        _object = jsonObj
     }
     
-    var object: Any {
+    var object: Any? {
         didSet  {
             switch object {
             case let array as [Any]:
@@ -62,6 +68,7 @@ public struct _JSON {
         }
     }
     
+    fileprivate var _object: Any
     fileprivate var rawArray: [Any] = []
     fileprivate var rawDictionary: [String: Any] = [:]
     fileprivate var rawNull: NSNull = NSNull()
