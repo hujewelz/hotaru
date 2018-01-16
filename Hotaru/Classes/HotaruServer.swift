@@ -23,10 +23,6 @@ public final class HotaruServer {
     
     
     internal var enableLog: Bool {
-        if currentEnvironment == .production {
-            return false
-        }
-        
         return isLogEnable
     }
     
