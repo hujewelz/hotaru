@@ -17,7 +17,10 @@ public struct Response {
     
     public let status: Status
     
-    public var data: Data?
+    public var data: Data? {
+        if error != nil { return nil }
+        return _data
+    }
     
     public var value: JSON? {
         return result.value
@@ -45,12 +48,14 @@ public struct Response {
         self.response = response
         self.result = Result(data: data)
         self.status = status
-        self.data = data
+        _data = data
     }
     
     static func `default`() -> Response {
         return Response(response: nil, result: .failure(NSError()), status: 0)
     }
+    
+    private var _data: Data?
     
 }
 
@@ -74,7 +79,7 @@ public enum Result {
         if let json = try? JSON(data: data) {
             self = .success(json)
         } else {
-            self = .failure(NSError())
+            self = .failure(HotaruError(code: -301))
         }
     }
     

@@ -35,6 +35,7 @@
 		BBEFE2F9CEB73DC7BD97FFA66A0D9D4F /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B029DBC43E49A740F12B5E4D2E6DD452 /* Validation.swift */; };
 		BE5C67A07E289FE1F9BE27335B159997 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6639346628280A0D0FAD35196BF56108 /* ParameterEncoding.swift */; };
 		C227CBD0B4E82F89DDE55309E9E36FAE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D0533E4EC2277AAAC8888328EC5A64B /* Foundation.framework */; };
+		C26ECED82010AA1600C1FE08 /* HotaruError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26ECED72010AA1600C1FE08 /* HotaruError.swift */; };
 		C278D6811FF1E93600887BF3 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278D6801FF1E93600887BF3 /* Request.swift */; };
 		C2A93F381FC65D260034746C /* HotaruJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A93F371FC65D260034746C /* HotaruJSON.swift */; };
 		C2BC290E1FF1047000123284 /* Cancelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BC290D1FF1047000123284 /* Cancelable.swift */; };
@@ -119,6 +120,7 @@
 		B7F4FA7DA719627B6B039DE9D41AFE84 /* Hotaru.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Hotaru.modulemap; sourceTree = "<group>"; };
 		BCCA9CA7D9C1A2047BB93336C5708DFD /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
 		BE437E65D43D095F14951017262EC38B /* Hotaru.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Hotaru.xcconfig; sourceTree = "<group>"; };
+		C26ECED72010AA1600C1FE08 /* HotaruError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotaruError.swift; sourceTree = "<group>"; };
 		C278D6801FF1E93600887BF3 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		C2A93F371FC65D260034746C /* HotaruJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotaruJSON.swift; sourceTree = "<group>"; };
 		C2BC290D1FF1047000123284 /* Cancelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cancelable.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				C2A93F371FC65D260034746C /* HotaruJSON.swift */,
 				C2BC290D1FF1047000123284 /* Cancelable.swift */,
 				C278D6801FF1E93600887BF3 /* Request.swift */,
+				C26ECED72010AA1600C1FE08 /* HotaruError.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				12F93EF276A8302918E888365CD42351 /* Hotaru-dummy.m in Sources */,
+				C26ECED82010AA1600C1FE08 /* HotaruError.swift in Sources */,
 				3E6332E97C223912224BA204B47389A0 /* Hotaru.swift in Sources */,
 				0DAE3DC54F4010EAFCF555969A391A39 /* HotaruServer.swift in Sources */,
 				95897805AAAE35DE693DFA96C1297E02 /* HotaruTargetType.swift in Sources */,
