@@ -16,8 +16,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Hotaru"
-        //test()
-        testMerge()
+        test()
+        //testMerge()
 //        testFlatMap()
     }
     
@@ -77,7 +77,7 @@ enum UserApi: TargetType {
     case users
     case detail(String)
     
-    var baseURL: URL { return URL(string: "http://192.168.6.114:3000")! }
+    var baseURL: URL { return URL(string: "http://localhost:3000")! }
     
     var path: String {
         switch self {

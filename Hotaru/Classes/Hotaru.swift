@@ -125,7 +125,7 @@ public extension Provider {
     @discardableResult
     public func request(_ handler: @escaping Handler) -> Cancelable {
         guard let _request = requests.values.first else { return Cancel{} }
-        
+        requests.removeAll()
         return request(_request.target, handler: handler)
     }
     
