@@ -50,10 +50,6 @@ open class Provider<T: TargetType> {
         let uuid = UUID()
         requests[uuid] = request
         
-        if HotaruServer.shared.enableLog {
-            Logger.logDebug(with: request.request, params: request.paramaters)
-        }
-        
         request.request.responseData(completionHandler: { (response) in
             let statusCode = response.response?.statusCode ?? -1
             
@@ -170,10 +166,6 @@ public extension Provider {
             group.enter()
             let request = Request(target: target)
             requests[UUID()] = request
-            
-            if HotaruServer.shared.enableLog {
-                Logger.logDebug(with: request.request, params: request.paramaters)
-            }
             
             request.request.responseData(completionHandler: { response in
                 let statusCode = response.response?.statusCode ?? -1

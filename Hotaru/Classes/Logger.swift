@@ -11,8 +11,8 @@ import Alamofire
 
 struct Logger {
     
-    static func logDebug(with request: Alamofire.Request, params: Parameters?) {
-        guard let httpRequest = request.request, let urlString = httpRequest.url?.absoluteString else {
+    static func logDebug(with request: URLRequest?, params: Parameters?) {
+        guard let httpRequest = request, let urlString = httpRequest.url?.absoluteString else {
             fatalError("url 错误.")
         }
         

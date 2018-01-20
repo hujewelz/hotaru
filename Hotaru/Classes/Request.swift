@@ -9,20 +9,26 @@ import Foundation
 import Alamofire
 
 final class Request<T: TargetType> {
-    var request: Alamofire.DataRequest
+    
     var paramaters: Parameters?
     var target: T
+    let url: URLConvertible
+    
+    var request: Alamofire.DataRequest {
+        let request = Alamofire.request(url, method: target.method, parameters: target.paramaters, encoding: target.encoding.value, headers: target.headers)
+        if HotaruServer.shared.enableLog {
+            Logger.logDebug(with: request.request, params: paramaters)
+        }
+        return request
+    }
+    
     
     init(target: T) {
-        let url = URL(string: target.baseURL.absoluteString + target.path) ?? target.baseURL
-        let method = target.method
-        let param = target.paramaters
-        let encoding = target.encoding.value
-        let headers = target.headers
+        url = URL(string: target.baseURL.absoluteString + target.path) ?? target.baseURL
+        self.paramaters = target.paramaters
         
-        self.paramaters = param
-        request = Alamofire.request(url, method: method, parameters: param, encoding: encoding, headers: headers)
         self.target = target
+        
     }
 }
 
