@@ -32,8 +32,6 @@ class ViewController: UIViewController {
     
     func testRx() {
         
-        
-        
         provider.response().map { response in
                 response.array.flatMap{ User($0 as! [String: Any]) }
             }.subscribe(onNext: { users in

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Hotaru'
-  s.version          = '1.0.4'
+  s.version          = '1.1.0'
   s.summary          = 'networking framework whit swift 3.0.'
 
 #  s.description      = <<-DESC
