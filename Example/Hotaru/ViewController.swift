@@ -8,10 +8,12 @@
 
 import UIKit
 import Hotaru
+import RxSwift
 
 class ViewController: UIViewController {
 
     let provider = Provider<UserApi>(.users)
+    let disposeBag = DisposeBag()
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,13 +28,24 @@ class ViewController: UIViewController {
             //print("response: ", response)
             print("title: ", self.title ?? "")
         }.addToCancelBag()
+    }
+    
+    func testRx() {
         
+        
+        
+        provider.response().map { response in
+                response.array.flatMap{ User($0 as! [String: Any]) }
+            }.subscribe(onNext: { users in
+                print("users: ", users)
+            }).disposed(by: disposeBag)
     }
     
     func testMerge() {
         provider.merge(.users, .detail("1232")) { response in
             
         }.addToCancelBag()
+    
     }
     
     deinit {

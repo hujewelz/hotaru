@@ -11,12 +11,6 @@ Pod::Spec.new do |s|
   s.version          = '1.0.4'
   s.summary          = 'networking framework whit swift 3.0.'
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
 #  s.description      = <<-DESC
 #networking framework whit swift 3.0
 #                       DESC
@@ -30,13 +24,15 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'Hotaru/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'Hotaru' => ['Hotaru/Assets/*.png']
-  # }
+  s.subspec 'Core' do |cs|
+    cs.source_files = 'Hotaru/Classes/Core**/*'
+  end
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-    s.dependency 'Alamofire', '~> 4.5.0'
+  s.subspec 'RxSwift' do |rx|
+    rx.source_files = 'Hotaru/Classes/Rx/**/*'
+    rx.dependency 'RxSwift'
+    rx.dependency 'Hotaru/Core'
+  end
+
+  s.dependency 'Alamofire', '~> 4.5.0'
 end

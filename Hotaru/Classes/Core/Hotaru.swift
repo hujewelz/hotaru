@@ -20,23 +20,17 @@ open class Provider<T: TargetType> {
         requests[uuid] = Request(target: target)
     }
     
-    deinit {
-        print("provider is destoried")
-    }
+    internal var requests: [UUID: Request<T>] = [:]
+    
+    internal var validateStatusCodeRange: Range<Int>?
+    
+    internal var validateStatusHandler: (() -> Void)?
     
     // MARK: - Private
     
     fileprivate var _handler: Handler?
-    
-    fileprivate var requests: [UUID: Request<T>] = [:]
-    
-    fileprivate var validateStatusCodeRange: Range<Int>?
-    
-    fileprivate var validateStatusHandler: (() -> Void)?
-    
+
     fileprivate var needSend = true
-    
- 
     
     fileprivate var objects: [Any] = []
     
@@ -124,7 +118,7 @@ public extension Provider {
     
     @discardableResult
     public func request(_ handler: @escaping Handler) -> Cancelable {
-        guard let _request = requests.values.first else { return Cancel{} }
+        guard let _request = requests.values.first else { fatalError("Target can not be empty") }
         requests.removeAll()
         return request(_request.target, handler: handler)
     }

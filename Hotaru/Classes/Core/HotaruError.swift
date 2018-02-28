@@ -7,7 +7,7 @@
 
 import Foundation
 
-fileprivate let ErrorMap: [Int: String] = [ -200: "请求失败", -301: "数据解析错误"]
+fileprivate let ErrorMap: [Int: String] = [ -200: "请求失败", -301: "数据解析错误", -100: "No request"]
 
 class HotaruError: NSError {
     init(code: Int) {
