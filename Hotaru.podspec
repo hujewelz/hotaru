@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Hotaru'
-  s.version          = '1.1.0'
+  s.version          = '1.1.1'
   s.summary          = 'networking framework whit swift 3.0.'
 
 #  s.description      = <<-DESC
@@ -23,6 +23,7 @@ Pod::Spec.new do |s|
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
+  s.default_subspec = 'Core'
 
   s.subspec 'Core' do |cs|
     cs.source_files = 'Hotaru/Classes/Core**/*'
