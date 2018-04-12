@@ -26,7 +26,7 @@ public final class HotaruServer {
         return isLogEnable
     }
     
-    internal var beforeResponseClosure: ((Int) -> Void)?
+    internal var beforeResponseClosures: [((Int) -> Void)] = []
     
     private var isLogEnable = true
     
@@ -51,6 +51,7 @@ public final class HotaruServer {
     // MARK: instance Func
     
     public func beforeResponse(_ closure: @escaping (Int) -> Void) {
-        beforeResponseClosure = closure
+        beforeResponseClosures.append(closure)
     }
 }
+

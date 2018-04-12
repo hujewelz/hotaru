@@ -53,7 +53,10 @@ open class Provider<T: TargetType> {
                 return
             }
             
-            HotaruServer.shared.beforeResponseClosure?(statusCode)
+            
+            HotaruServer.shared.beforeResponseClosures.forEach{ closure in
+                closure(statusCode)
+            }
             
             if HotaruServer.shared.enableLog {
                 Logger.logDebug(with: response, data: response.value)
