@@ -21,7 +21,7 @@ Provider<UserApi>(.users).JSONData { (response) in
     }
             
     print(user)
-}
+}.addToCancelBag()
 
 ```
 
